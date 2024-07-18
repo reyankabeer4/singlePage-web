@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        nav {
+            background-color: rgb(0, 0, 0);
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            align-items: center;
+        }
+        li {
+            list-style: none;
+        }
+        h2 {
+            color: white;
+        }
+        a {
+            margin-right: 20px;
+            font-size: 20px;
+            list-style: none;
+            text-decoration: none;
+            color: white;
+            transition: 0.5s;
+        }
+        a:hover {
+            color: aqua;
+        }
+        .btn {
+            color: white;
+            border: 1px solid white;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+        .btn:hover {
+            color: aqua;
+            border: 1px solid aqua;
+        }
+        section {
+            background-color: black;
+            color: white;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            line-height: 2;
+            padding: 300px;
+        }
+        section p {
+            text-align: center;
+            color: rgba(240, 248, 255, 0.787);
+        }
+        .joinUs {
+            padding: 0 30px;
+            border-radius: 5px;
+            border: 1px solid white;
+            margin-top: 20px;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.5s ease;
+            background-color: black;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .hero{
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .heroPara{
+            color: black;
+            font-size: 50px;
+            
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h2>RYU</h2>
+        <ul>
+            <li>
+                <a href="">Home</a>
+                <a href="">About</a>
+                <a href="">Contact</a>
+                <a href="">Product</a>
+            </li>
+        </ul>
+        <div class="btn">Get Started</div>
+    </nav>
+    <section>
+        <p>Our Mission</p>
+        <h1>We do ordinary stuff for cool people</h1>
+        <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur,
+            placeat dignissimos ratione accusantium dicta, excepturi et dolorem quod
+            aut fuga aperiam, molestias minima illo id atque veritatis quam alias
+            unde.
+        </p>
+        <a href="" class="joinUs">Join Us</a>
+    </section>
+    <div class="hero">
+        <p class="heroPara">E-COMMErCE</p>
+    </div>
+    <section class="reveal">
+        <h1>Reveal on Scroll</h1>
+        <p>This content will reveal as you scroll down.</p>
+    </section>
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                } else {
+                    reveals[i].classList.remove("active");
+                }
+            }
+        }
+
+        window.addEventListener("scroll", reveal);
+        reveal(); // To check the scroll position on page load
+    </script>
+</body>
+</html>
